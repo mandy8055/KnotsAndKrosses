@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.mandys.knotsandkross.WinnersActivity"
+    android:orientation="horizontal">
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id = "@+id/viewKonfetti"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
+    <TextView
+        android:id="@+id/CongoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Congratulations!!"
+        android:textSize="35dp"
+        android:textColor= "#ff1a1a"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#4d4dff"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:id="@+id/txt_tog"
+        android:textSize="24dp"
+        android:layout_above="@+id/btnTogether"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="72dp" />
+    <Button
+        android:id="@+id/btnTogether"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Play Again"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

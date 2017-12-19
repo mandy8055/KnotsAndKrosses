@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KnotsAndKrosses</string>
+
+    <string name="normalText">Normal Mode</string>
+    <string name="ultimateMode">Normal Mode</string>
+    <string name="AboutBtn">About</string>
+    <string name="PlayerText">Two Player Mode</string>
+    <string name="ExitText">Exit</string>
+
+</resources>
