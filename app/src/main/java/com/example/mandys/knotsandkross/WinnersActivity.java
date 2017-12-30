@@ -47,8 +47,10 @@ public class WinnersActivity extends AppCompatActivity  {
         btnExit = (Button)findViewById(R.id.button);
         txtView = (TextView)findViewById(R.id.CongoText);
         txtView1 = (TextView)findViewById(R.id.txt_tog);
+        String str1 = getIntent().getExtras().get("header").toString();
         String str = getIntent().getExtras().get("winner name").toString();
-        txtView1.setText(str + " player is the winner.");
+        txtView1.setText(str);
+        txtView.setText(str1);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

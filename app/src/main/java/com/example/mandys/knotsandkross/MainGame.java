@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class MainGame extends AppCompatActivity {
     String winner = "";
+    String head = "";
     int activePlayer = 0; // 0 is for Knot
     int [] gameState = {2, 2, 2, 2, 2, 2, 2, 2, 2};// 2 means not-played location
     int [][] winningLocations = {{0, 1, 2}, {3, 4, 5},
@@ -56,39 +57,63 @@ public class MainGame extends AppCompatActivity {
                 activePlayer = 0;
             }
             tapped.animate().translationYBy(3000f).setDuration(500);
-        }
-        /*else if(gameState[tappedLocation] != 2){
-            Toast.makeText(getApplicationContext(), "Match is drawn", Toast.LENGTH_SHORT).show();*/
-        //}
-        for(int []  winningPosition : winningLocations){
 
-            if(gameState[winningPosition[0]] == gameState[winningPosition[1]]
-                    && gameState[winningPosition[1]] == gameState[winningPosition[2]]
-                    && gameState[winningPosition[0]] != 2){
 
-                if(activePlayer == 0){
-                    //Toast.makeText(getApplicationContext(), "Player B is winner:)", Toast.LENGTH_SHORT).show();
-                    winner = "Kross's";
+            for (int[] winningPosition : winningLocations) {
+
+                if (gameState[winningPosition[0]] == gameState[winningPosition[1]]
+                        && gameState[winningPosition[1]] == gameState[winningPosition[2]]
+                        && gameState[winningPosition[0]] != 2) {
+
+                    if (activePlayer == 0) {
+                        //Toast.makeText(getApplicationContext(), "Player B is winner:)", Toast.LENGTH_SHORT).show();
+                        winner = "Kross's player is the winner";
+                        head = "Congratulations!!";
+
+
+                    } else if (activePlayer == 1) {
+                        //Toast.makeText(getApplicationContext(), "Player A is winner:)", Toast.LENGTH_SHORT).show();
+                        winner = "Knot's player is the winner";
+                        head = "Congratulations!!";
+                    }
+                /*else{
+                    winner = "Match is drawn!!Equal wits eh...";
+                    head = "Well Played!!";
+                    }*/
+                    gameOver = true;
+                    Intent intent = new Intent(MainGame.this, WinnersActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    Bundle extras = new Bundle();
+                    extras.putString("winner name", winner);
+                    extras.putString("header", head);
+                    intent.putExtras(extras);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                 }
-                else if(activePlayer == 1)
-                    //Toast.makeText(getApplicationContext(), "Player A is winner:)", Toast.LENGTH_SHORT).show();
-                    winner = "Knot's";
-                    /* else
-                    Toast.makeText(getApplicationContext(), "Match is drawn:D", Toast.LENGTH_LONG).show();*/
-                gameOver = true;
-                //break;
-                Intent intent = new Intent(MainGame.this, WinnersActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("winner name", winner);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
             }
         }
+        else{
+            //Toast.makeText(getApplicationContext(), "Match is drawn", Toast.LENGTH_SHORT).show();
+            winner = "Match is drawn!!";
+            head = "Well Played!!";
+            Intent intent = new Intent(MainGame.this, WinnersActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            Bundle extras = new Bundle();
+            extras.putString("winner name", winner);
+            extras.putString("header", head);
+            intent.putExtras(extras);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+
+        }
+
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
