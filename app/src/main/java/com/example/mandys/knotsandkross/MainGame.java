@@ -68,15 +68,15 @@ public class MainGame extends AppCompatActivity {
 
                 if(activePlayer == 0){
                     //Toast.makeText(getApplicationContext(), "Player B is winner:)", Toast.LENGTH_SHORT).show();
-                    winner = "Kross";
+                    winner = "Kross's";
 
                 }
                 else if(activePlayer == 1)
                     //Toast.makeText(getApplicationContext(), "Player A is winner:)", Toast.LENGTH_SHORT).show();
-                    winner = "Knot";
+                    winner = "Knot's";
                     /* else
-                    Toast.makeText(getApplicationContext(), "Match is drawn:D", Toast.LENGTH_LONG).show();
-*/              gameOver = true;
+                    Toast.makeText(getApplicationContext(), "Match is drawn:D", Toast.LENGTH_LONG).show();*/
+                gameOver = true;
                 //break;
                 Intent intent = new Intent(MainGame.this, WinnersActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -84,6 +84,7 @@ public class MainGame extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("winner name", winner);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 
             }
