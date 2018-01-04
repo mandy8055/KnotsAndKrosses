@@ -9,6 +9,7 @@ You can find the apk file in [here](Apk/)
 **Important and Helpful Method**
 
     overridePendingTransition();
+Used it in [here](KnotsAndKrosses/blob/master/app/src/main/java/com/example/mandys/knotsandkross/MainGame.java)
 
 
 Working demo of the application:
