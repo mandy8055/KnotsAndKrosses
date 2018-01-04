@@ -11,6 +11,9 @@ You can find the apk file in [here](Apk/)
     overridePendingTransition();
 Used it in [here](app/src/main/java/com/example/mandys/knotsandkross/MainGame.java)
 
+3. One of the very important dependancy which will help for further amelioration of multiple application is the splash screen animation which is implemented using:
+
+    <code>compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'</code>
 
 Working demo of the application:
 
